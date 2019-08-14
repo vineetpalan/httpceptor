@@ -1,0 +1,31 @@
+{
+  "/wapi/2.9.1/record:txt": {
+    "POST": {
+      "return_code": 200,
+      "response": "Done"
+    },
+    "GET": {
+      "return_code": 200,
+      "response": {
+        "result": [
+          {
+            "_ref": "record:txt/ZG5zLmJpbmRfdHh0JC5fZGVmYXVsdC5jb20udGVzdC5tYWlsLiJUaGlzIiAiYSIgIm1haWwiICJzZXJ2ZXIi:mail.test.com/default",
+            "name": "_acme-challenge.test.example.com",
+            "text": "txt_value",
+            "view": "default"
+          }
+        ]
+      }
+    }
+  },
+  "/wapi/2.9.1/record:txt/<value>/<view>": {
+    "DELETE": {
+      "return_code": 200,
+      "response": "OK"
+    },
+    "GET": {
+      "return_code": 200,
+      "response": "OK"
+    }
+  }
+}
