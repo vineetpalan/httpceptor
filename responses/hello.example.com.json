@@ -1,0 +1,12 @@
+{
+  "hello.example.com": {
+      "/health": {
+        "GET": {
+          "return_code": 200,
+          "response": "Healthy",
+          "reason": "OK"
+        }
+      }
+    }
+  }
+  
