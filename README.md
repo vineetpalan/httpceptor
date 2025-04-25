@@ -1,4 +1,4 @@
-# Simple HTTPS Mock Server
+# httpceptor
 
 A lightweight HTTPS mock server built with Python.
 It serves dynamic mock JSON responses based on the HTTP request's
