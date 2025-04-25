@@ -1,0 +1,33 @@
+services:
+  httpceptor:
+    build: .
+    container_name: httpceptor
+    environment:
+      - RESPONSE_DIR=/responses
+      - CERTS_DIR=/certs
+    volumes:
+      - ./responses:/responses
+      - ./certs:/certs
+    networks:
+      httpceptor_network:
+        ipv4_address: 192.168.1.100
+
+  client:
+    build: client
+    depends_on:
+      - httpceptor
+    networks:
+      - httpceptor_network
+    volumes:
+      - ./certs:/certs
+    entrypoint: >
+      curl --cacert /certs/ca.crt https://hello.example.com/health
+    extra_hosts:
+      - "hello.example.com:192.168.1.100"
+
+networks:
+  httpceptor_network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: "192.168.1.0/24"
