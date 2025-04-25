@@ -1,11 +1,11 @@
-FROM python:3.5
+FROM python:3.12-slim
 
 ENV TZ=America/New_York
 
 WORKDIR /app
 COPY requirements.txt .
 RUN pip install -r requirements.txt
-COPY app.py .
+COPY . .
 
-ENTRYPOINT ["python"]
-CMD ["app.py"]
+ENTRYPOINT ["python3.12"]
+CMD ["httpceptor.py"]
